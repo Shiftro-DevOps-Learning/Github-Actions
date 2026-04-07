@@ -8,10 +8,6 @@ env:
     OVERWRITTEN: "I will be overwritten"
     UNDEFINED_VAR_WITH_DEFAULT: "${{ vars.UNDEFINED_VAR || 'default value' }}"
 
-vars:
-    UNDEFINED_VAR: "Default Value"
-
-
 jobs:
     echo:
         runs-on: ubuntu-latest
@@ -62,4 +58,4 @@ jobs:
         steps:
             - name: "Print Undefined Variables"
               run: |
-                echo "Org var: ${{ vars.UNDEFINED_VAR_WITH_DEFAULT }}"
+                echo "Org var: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
