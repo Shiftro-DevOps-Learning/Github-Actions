@@ -10,10 +10,6 @@ on:
         default: success
         description: "Whether the build should succeed or fail"
 
-cat << EOF
-          ${{ toJSON(github.event.pull_request.labels) }}
-          EOF
-
 jobs:
   build:
     runs-on: ubuntu-latest
