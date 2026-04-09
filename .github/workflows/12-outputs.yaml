@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-status: ${{ steps.build.outputs.status }}
+      output1: ${{ steps.build.outputs.output1 }}
     steps:
       - id: path
         name: Print GITHUB_OUTPUT path
@@ -24,7 +25,10 @@ jobs:
       - id: build
         name: Build
         run: |
-          echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
+          echo "status=${{ inputs.build-status }}, output1=value1, output2=value2 " > "$GITHUB_OUTPUT"
+          cat $GITHUB_OUTPUT
+          echo "mistake=true" > "$GITHUB_OUTPUT"
+          cat $GITHUB_OUTPUT
     
   deploy:
     runs-on: ubuntu-latest
@@ -33,3 +37,7 @@ jobs:
     steps:
       - name: Deploy
         run: echo "Deploying application..."
+      - name: Print Outputs
+        run: | 
+          echo "Value of output1: ${{ needs.build.outputs.output1 }}"
+        
