@@ -5,7 +5,7 @@ on:
     inputs:
       pass-unit-tests:
         type: boolean
-        default: false
+        default: 'false'
   
 jobs:
   # lint-build:
@@ -20,7 +20,7 @@ jobs:
       - name: "Running unit test"
         run: echo "Running test..."
       - name: "Failing tests"
-        if: ${{ github.event.inputs.pass-unit-tests == false }}
+        if: ${{ github.event.inputs.pass-unit-tests == 'false' }}
         run: exit 1
   
   # deploy-nonprod:
