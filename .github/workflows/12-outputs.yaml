@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-status: ${{ steps.build.outputs.status }}
+      output1: value1
+      output2: value2
     steps:
       - id: path
         name: Print GITHUB_OUTPUT path
@@ -23,11 +25,8 @@ jobs:
       
       - id: build
         name: Build
-        outputs:
-          output1: value1
-          output2: value2
         run: |
-          echo "status=${{ inputs.build-status }}, output-1=${{ steps.build.outputs.output1 }}" >> "$GITHUB_OUTPUT"
+          echo "status=${{ inputs.build-status }}, output-1=${{ jobs.build.outputs.output1 }}" > "$GITHUB_OUTPUT"
           cat $GITHUB_OUTPUT
           echo "mistake=true" > "$GITHUB_OUTPUT"
           cat $GITHUB_OUTPUT
