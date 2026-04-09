@@ -1,5 +1,6 @@
 name: 10 - Controlling the Execution Flow
-on: 
+on:
+  push:
   workflow_dispatch:
     inputs:
       pass-unit-tests:
@@ -53,4 +54,3 @@ jobs:
     steps:
       - name: "Deploying to prod"
         run: echo "Deploying to prod..."
-        
