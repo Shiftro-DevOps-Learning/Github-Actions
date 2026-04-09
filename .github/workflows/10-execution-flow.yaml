@@ -6,6 +6,7 @@ on:
       pass-unit-tests:
         type: boolean
         default: false
+        description: "Whether unit tests should pass or fail"
   
 jobs:
   lint-build:
