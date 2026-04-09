@@ -1,15 +1,15 @@
 name: 10 - Controlling the Execution Flow
 on:
-  push:
+  # push:
   workflow_dispatch:
     inputs:
-      pass-unit-tests:
+      pass-unti-tests:
         type: boolean
         default: false
   
 jobs:
   lint-build:
-    runs-one: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: "Lint and build"
         run: echo"Linting and building project"
