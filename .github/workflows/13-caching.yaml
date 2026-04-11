@@ -80,8 +80,8 @@ jobs:
         id: cache
         if: ${{ inputs.use-cache }}
         uses: actions/cache@v3
-        restore-keys: |
-          ${{ steps.cache-key.outputs.CACHE_KEY }}
+        with:
+          restore-keys: ${{ steps.cache-key.outputs.CACHE_KEY }}          
 
       - name: Install Dependencies
         if: ${{ steps.cache.outputs.cache-hit != 'true' }}
