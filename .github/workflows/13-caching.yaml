@@ -6,13 +6,13 @@ on:
         type: boolean
         default: true
         description: "Whether to use execute cache step"
-    run:
-      shell: bash
-      working-directory: 13-caching/react-app
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 13-using-caching/react-app
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
