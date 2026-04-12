@@ -1,14 +1,15 @@
 name: 15 - Working with Matrices
 on:
   worfklow_dispatch:
+  push:
 
 jobs:
   backwards-compatibility:
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-      node-version: [18.x, 20.x, 21.x]
-      os: [ubuntu-latest, windows-latest]
+        matrix:
+          node-version: [18.x, 20.x, 21.x]
+          os: [ubuntu-latest, windows-latest]
     name: ${{ matrix.os }}-${{ matrix.node-version }}
     steps:
       - name: Setup node
@@ -19,6 +20,6 @@ jobs:
       - name: Perform some tests
         run: |
           echo "Running tsts on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
-          
+
       
     
