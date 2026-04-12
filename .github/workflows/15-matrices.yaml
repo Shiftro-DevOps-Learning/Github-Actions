@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Dummy step
         run: | 
-          echo "Testing with color ${{ matrix.color }}, shape ${{ matrix.shape }}, size ${{ matrix.size }}"
+          echo "Testing with color ${{ matrix.color }}, shape ${{ matrix.shape }}, size ${{ matrix.size }}, opacity ${{ matrix.opacity }}"
 
       
     
