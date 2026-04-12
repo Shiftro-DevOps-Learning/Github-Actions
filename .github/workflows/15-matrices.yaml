@@ -53,7 +53,7 @@ jobs:
             shape: triangle
           - opacity: 50
 
-    name: ${{ matrix.color }}-${{ matrix.shape }}-${{ matrix.size }}
+    name: ${{ matrix.color }}-${{ matrix.shape }}-${{ matrix.size }}-${{ matrix.opacity }}
     steps:
       - name: Dummy step
         run: | 
