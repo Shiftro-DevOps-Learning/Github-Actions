@@ -1,6 +1,7 @@
 name: 15 - Working with Matrices
 on:
   worfklow_dispatch:
+  push:
 
 jobs:
   backwards-compatibility:
@@ -19,6 +20,6 @@ jobs:
       - name: Perform some tests
         run: |
           echo "Running tsts on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
-          
+
       
     
