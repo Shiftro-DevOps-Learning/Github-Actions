@@ -52,8 +52,12 @@ jobs:
           - color: red
             shape: triangle
           - opacity: 50
+          - color: green
+            shape: cicrle
+            size: medium
         exclude:
-          - opacity: 75
+          - color: green
+            shape: cicle
           
 
     name: ${{ matrix.color }}-${{ matrix.shape }}-${{ matrix.size }}-${{ matrix.opacity }}
