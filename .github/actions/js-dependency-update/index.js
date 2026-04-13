@@ -2,22 +2,6 @@ const core = require('@actions/core');
 const exec = require('@actions/exec');
 const github = require('@actions/github');
 
-const octokit = github.getOctokit(ghToken);
- 
-try {
-  await octokit.rest.pulls.create({
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo,
-    title: `Update NPM dependencies`,
-    body: `This pull request updates NPM packages`,
-    base: baseBranch,
-    head: targetBranch 
-  });
-} catch (e) {
-  core.error('[js-dependency-update] : Something went wrong while creating the PR. Check logs below.');
-  core.setFailed(e.message);
-  core.error(e);
-}
 
 const validateBranchName = ({ branchName }) =>
   /^[a-zA-Z0-9_\-\.\/]+$/.test(branchName);
