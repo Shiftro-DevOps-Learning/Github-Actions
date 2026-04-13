@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       target-env:
-        description: Which environment to target
+        description: Which environment to target (dev or prod)
         type: choice
         options:
           - dev
