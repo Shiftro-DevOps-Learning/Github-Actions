@@ -14,7 +14,9 @@ env:
 jobs: 
   build:
     runs-on: ubuntu-latest
-    working-directory: ${{ env.working-directory }}
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
     steps:
       - name: checkout code
         uses: actions/checkout@v6
