@@ -12,6 +12,11 @@ inputs:
     description: "The Working directory of the application"
     default: "."
 
+  target-env:
+    description: '"dev" or "prod"'
+    default: dev
+    required: false
+
 runs:
   using: composite
   steps: 
@@ -28,8 +33,7 @@ runs:
         path: ${{ inputs.working-dir }}/node_modules
 
     - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        npm install
+      if: steps.cache.outputs.cache-hit != 'true' && inputs.target-env == 'dev'
+      run: ${{ inputs.target-env == 'dev' && 'npm install' || 'npm install --omit=dev' }}
       shell: bash
-      working-directory: ${{ inputs.working-dir }}     
+      working-directory: ${{ inputs.working-dir }}   
